@@ -1,0 +1,8 @@
+# CPU Command
+python train.py  --device cpu --workers 1 --batch-size 1  --epochs 3 --data data/coco.yaml --img 640 640 --cfg cfg/training/yolov7.yaml --weights 'yolov7_training.pt' --name yolov7-pothole
+
+# GPU Command
+python train.py --device 0 --workers 1 --batch-size 1  --epochs 3 --data data/coco.yaml --img 640 640 --cfg cfg/training/yolov7.yaml --weights 'yolov7_training.pt' --name yolov7-pothole
+
+# Export Command
+python export.py --weights runs/train/yolov7-pothole4/weights/best.pt --grid --end2end --simplify --topk-all 100 --iou-thres 0.65 --conf-thres 0.35 --img-size 640 640 --max-wh 640
